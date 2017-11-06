@@ -1,6 +1,8 @@
 import { SiteService } from './../../-services/site.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireList } from 'angularfire2/database';
+import { Site } from '../../models/site';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +10,16 @@ import { AngularFireList } from 'angularfire2/database';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  lists: AngularFireList<any>;
+  i: any;
+  data: Site[];
+  inter: any;
+  lists: Observable<Site[]>;
+ 
 
   constructor(private siteService: SiteService) { }
 
   ngOnInit() {
-    this.lists = this.siteService.listRef;
+    this.lists = this.siteService.list$;
   }
 
 }

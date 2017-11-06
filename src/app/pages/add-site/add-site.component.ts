@@ -2,6 +2,7 @@ import { Site } from '../../models/site';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { SiteService } from '../../-services/site.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-site',
@@ -9,22 +10,31 @@ import { SiteService } from '../../-services/site.service';
   styleUrls: ['./add-site.component.css']
 })
 export class AddSiteComponent implements OnInit {
+  displayError: any;
   form: FormGroup;
-  constructor(private fb: FormBuilder, private siteservice: SiteService) { }
+  constructor(private fb: FormBuilder, private siteservice: SiteService, private router: Router) { }
 
   ngOnInit() {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      state: [''],
-      suburb: [''],
-      coordinates: [''],
+      address: this.fb.group({
+        state: [''],
+        suburb: [''],
+        xcoordinates: [''],
+        ycoordinates: [''],
+      }),
       interval: [''],
       note: [''],
       member: [''],
     });
   }
   onSubmit({ value, valid }: { value: Site, valid: boolean }) {
-    const database = this.siteservice.listRef;
-    database.push({ value });
+    const date: Date = new Date();
+    value.lastcompletedDate = date;
+    this.siteservice.listRef.add(value)
+    .then((success) => this.router.navigate(['/']))
+    .catch((error) => {
+      this.displayError = error.message;
+    })
   }
 }

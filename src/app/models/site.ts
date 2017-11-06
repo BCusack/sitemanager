@@ -30,5 +30,6 @@ export class Location {
     $key: String;
     state: String;
     suburb: String;
-    coordinates: String;
+    ycoordinates: String;
+    xcoordinates: String;
 }

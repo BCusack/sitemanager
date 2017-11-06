@@ -8,6 +8,8 @@ import { HomeComponent } from './pages/home/home.component';
 
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { NavComponent } from './shared/nav/nav.component';
@@ -27,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     ReactiveFormsModule
   ],
