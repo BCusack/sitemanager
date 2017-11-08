@@ -16,7 +16,9 @@ const routes: Routes = [
   {
     path: 'addsite',
     component: AddSiteComponent
-  }
+  },
+  { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule' },
+
 ];
 
 @NgModule({

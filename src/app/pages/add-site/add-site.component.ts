@@ -1,7 +1,7 @@
 import { Site } from '../../models/site';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { SiteService } from '../../-services/site.service';
+import { SiteService } from '../../_services/site.service';
 import { Router } from '@angular/router';
 
 @Component({

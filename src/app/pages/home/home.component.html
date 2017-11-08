@@ -1,14 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
     <div class="card-deck mt-4">
-        <div class="col-4" *ngFor="let list of lists | async">
-            <div style="text-align:center" class="card mt-4">
+        <a [routerLink]="[ '/lazy' ]">lazy</a>
+        <div class="col-12" *ngFor="let list of lists | async">
+            <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title">{{list?.name}}</h4>
+                    <h4  class="card-title">{{list?.name}}</h4>
                     <p class="card-text" text-center>
-                       Last completed: {{ list?.lastcompletedDate | date:"dd/MM/yy"}}</p>
-                        <span>Date Due: {{list?.interval }}</span>
-                    <p>{{list?.note}}</p>
+                        Last completed: {{ list?.lastcompletedDate | date:"dd/MM/yy"}}</p>
+                    <span>Date Due: {{list?.interval }}</span>
+                    <div class="card-footer">
+                        <span>Notes</span>
+                        <h5>{{list?.note}}</h5>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import { SiteService } from './-services/site.service';
+import { SiteService } from './_services/site.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -17,6 +17,7 @@ import { AddSiteComponent } from './pages/add-site/add-site.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFireDatabaseModule,
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule  ],
   providers: [SiteService],
   bootstrap: [AppComponent]
 })
