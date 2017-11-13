@@ -18,13 +18,15 @@ import { AddSiteComponent } from './pages/add-site/add-site.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailsComponent } from './pages/details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavComponent,
-    AddSiteComponent
+    AddSiteComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

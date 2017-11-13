@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireList } from 'angularfire2/database';
 import { Site } from '../../models/site';
 import { Observable } from 'rxjs/Observable';
+import { DocumentChangeAction } from 'angularfire2/firestore/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  d: String;
+  d: Observable<{ id: string; }[]>;
   data: Site[];
   lists: Observable<Site[]>;
 
@@ -18,7 +19,14 @@ export class HomeComponent implements OnInit {
   constructor(private siteService: SiteService) { }
 
   ngOnInit() {
-    this.lists = this.siteService.listRef.valueChanges();
-    this.lists.subscribe(x =>  this.data = x );
+    // use snapshotChanges() to get the key value
+    this.d = this.siteService.listRef.snapshotChanges()
+      .map(actions => {
+        return actions.map(action => {
+          const data = action.payload.doc.data();
+          const id = action.payload.doc.id;
+          return { id, ...data };
+        });
+      });
   }
 }

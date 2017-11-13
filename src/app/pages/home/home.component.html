@@ -1,9 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-    <div class="card-deck mt-4">
-        <a class="btn btn-primary" [routerLink]="[ '/lazy' ]">lazy</a>
-        <div class="col-12" *ngFor="let list of lists | async">
-            <div class="card   mt-4">
+    <div class="card-deck m-4">
+        <div class="col-12" *ngFor="let list of d | async">
+            <div class="card  m-4" [routerLink]="['/details/'+ list.id]">
                 <div class="card-header ">
                     <h4 class="card-title">{{list?.name}}</h4>
                 </div>
@@ -12,7 +11,7 @@
                         Last completed: {{ list?.lastcompletedDate | date:"dd/MM/yy"}}</div>
                     <div class="text-right">Date Due: {{list?.interval }}</div>
                     <div class="card-footer">
-                        <span>Notes</span>
+                        <div>Notes</div>
                         <h5>{{list?.note}}</h5>
                     </div>
                 </div>
