@@ -4,8 +4,9 @@
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "./?utm_source=web_app_manifest",
   "Scope": "/",
-  "start_url": "/home",
   "icons": [
     {
       "src": "assets/images/icons/icon-72x72.png",
@@ -47,6 +48,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "splash_pages": null
+  ]
 }

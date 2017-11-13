@@ -11,8 +11,8 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 @Injectable()
 export class SiteService {
   listRef: AngularFirestoreCollection<Site>;
-  
+
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {
-    this.listRef = this.db.collection<Site>('/sites',ref => ref.orderBy('lastcompletedDate'));
+    this.listRef = this.db.collection<Site>('/sites', ref => ref.orderBy('lastcompletedDate'));
   }
 }

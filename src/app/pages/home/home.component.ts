@@ -19,6 +19,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.lists = this.siteService.listRef.valueChanges();
-    this.lists.subscribe(x => { this.data = x });
+    this.lists.subscribe(x =>  this.data = x );
   }
 }

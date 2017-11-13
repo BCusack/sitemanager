@@ -35,6 +35,6 @@ export class AddSiteComponent implements OnInit {
     .then((success) => this.router.navigate(['/']))
     .catch((error) => {
       this.displayError = error.message;
-    })
+    });
   }
 }

@@ -4,11 +4,11 @@
         <a class="btn btn-primary" [routerLink]="[ '/lazy' ]">lazy</a>
         <div class="col-12" *ngFor="let list of lists | async">
             <div class="card mt-4">
+                <div class="card-header"> <h4  class="card-title">{{list?.name}}</h4></div>
                 <div class="card-body">
-                    <h4  class="card-title">{{list?.name}}</h4>
-                    <p class="card-text" text-center>
-                        Last completed: {{ list?.lastcompletedDate | date:"dd/MM/yy"}}</p>
-                    <span>Date Due: {{list?.interval }}</span>
+                    <div class="card-text text-left" >
+                        Last completed: {{ list?.lastcompletedDate | date:"dd/MM/yy"}}</div>
+                    <div class="text-right" >Date Due: {{list?.interval }}</div>
                     <div class="card-footer">
                         <span>Notes</span>
                         <h5>{{list?.note}}</h5>
