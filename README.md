@@ -10,6 +10,11 @@ This app was upgraded from the package.json file and should compile with the new
 
 Add your own redentials to you Environments file, best ref `https://medium.com/letsboot/lets-learn-how-to-install-and-setup-angularfire2-4-0-135d72bb0a41`.
 
+## Firebase Functions
+
+cd into ./functions and `npm i` to import dependencies for firebase functions.
+
+
 ## Development server
 
 Run `ng s` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

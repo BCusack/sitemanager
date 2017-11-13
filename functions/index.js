@@ -6,13 +6,14 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 
-exports.createUser = functions.firestore
-.document('sites')
-.onCreate(event => {
-
-  var newValue = event.data.data();
-
-  var name = newValue.interval;
-  consol.log(name);
-
-});
+exports.helloUser = functions.firestore
+    .document('sites/{id}')
+    .onWrite(event => {
+        const due = new Date();
+        const data = event.data.data();
+        const comp = data.lastcompletedDate;
+        due.setDate(comp.getDate() + data.interval);
+        console.log('due', due);
+        console.log('comp', comp);
+        return event.data.ref.update({ 'due': due });
+    });

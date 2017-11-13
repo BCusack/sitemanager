@@ -17,6 +17,7 @@ import { AddSiteComponent } from './pages/add-site/add-site.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFireDatabaseModule,
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
-    ReactiveFormsModule  ],
+    BrowserAnimationsModule,
+    ReactiveFormsModule],
   providers: [SiteService],
   bootstrap: [AppComponent]
 })
