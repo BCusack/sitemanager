@@ -11,12 +11,16 @@ import { DocumentChangeAction } from 'angularfire2/firestore/interfaces';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  date: any;
+  header: string[];
   d: Observable<{ id: string; }[]>;
   data: Site[];
   lists: Observable<Site[]>;
 
 
-  constructor(private siteService: SiteService) { }
+  constructor(private siteService: SiteService) {
+
+  }
 
   ngOnInit() {
     // use snapshotChanges() to get the key value
@@ -27,6 +31,12 @@ export class HomeComponent implements OnInit {
           const id = action.payload.doc.id;
           return { id, ...data };
         });
-      });
+      }); this.colorHeader();
+  }
+  colorHeader() {
+    const i = 'card-header bg-primary text-white';
+    this.date = this.d.subscribe(console.log);
+
+    this.header = [i];
   }
 }

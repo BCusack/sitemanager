@@ -6,7 +6,7 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 
-exports.helloUser = functions.firestore
+exports.dueDate = functions.firestore
     .document('sites/{id}')
     .onWrite(event => {
         const due = new Date();
