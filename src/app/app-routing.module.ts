@@ -1,4 +1,3 @@
-import { AddSiteComponent } from './pages/add-site/add-site.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,14 +9,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'addsite',
-    component: AddSiteComponent
-  },
-  {
     path: 'details/:id',
     component: DetailsComponent
   },
-  { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule' },
+  { path: 'addsite', loadChildren: './pages/add-site/add-site.module#AddSiteModule' },
 
 ];
 

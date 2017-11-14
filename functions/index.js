@@ -11,9 +11,12 @@ exports.helloUser = functions.firestore
     .onWrite(event => {
         const due = new Date();
         const data = event.data.data();
+        const previous = event.data.previous.data();
         const comp = data.lastcompletedDate;
-        due.setDate(comp.getDate() + data.interval);
-        console.log('due', due);
-        console.log('comp', comp);
-        return event.data.ref.update({ 'due': due });
+        if (previous.interval == data.interval) {
+            return null;
+        } else {
+            due.setDate(comp.getDate() + data.interval);
+            return event.data.ref.update({ 'due': due });
+        }
     });

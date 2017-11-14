@@ -13,7 +13,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { NavComponent } from './shared/nav/nav.component';
-import { AddSiteComponent } from './pages/add-site/add-site.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -25,7 +24,6 @@ import { DetailsComponent } from './pages/details/details.component';
     AppComponent,
     HomeComponent,
     NavComponent,
-    AddSiteComponent,
     DetailsComponent
   ],
   imports: [
