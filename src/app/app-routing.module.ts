@@ -4,8 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { DetailsComponent } from './pages/details/details.component';
 
 const routes: Routes = [
+  { path: '', loadChildren: './pages/landing/landing.module#LandingModule' },
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
   },
   {
