@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AddSiteRoutingModule } from './add-site-routing.module';
 import { AddSiteComponent } from './add-site.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core/core.module';
 
 
 
@@ -11,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AddSiteRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule
   ],
   declarations: [
     AddSiteComponent

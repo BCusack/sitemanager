@@ -1,13 +1,14 @@
 <div class="container">
- 
-    <div class="card text-center m-4" >
-      <div class="card-block m-4">
-        <h4 class="card-title"> {{ (site | async)?.name }}</h4>
-        <p class="card-text">Address: {{(site | async)?.suburb}} {{(site | async)?.state}} </p>
-        <div>Last completed: {{(site | async)?.lastcompletedDate | date}} </div>
-        <div>Due Date: {{(site | async)?.due | date}} </div>
-        <div class="btn btn-primary m-4" (click)=resetDate()>Completed</div>
-      </div>
+  <div class="card text-center m-4">
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+    <div class="card-block m-4">
+      <h4 class="card-title"> {{ (site | async)?.name }}</h4>
+      <p class="card-text">Address: {{(site | async)?.suburb}} {{(site | async)?.state}} </p>
+      <div>Last completed: {{(site | async)?.lastcompletedDate | date}} </div>
+      <div>Due Date: {{(site | async)?.due | date}} </div>
+      <div class="btn btn-primary m-4" (click)=resetDate()>Completed</div>
     </div>
-
+  </div>
 </div>

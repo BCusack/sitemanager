@@ -14,12 +14,14 @@ export class DetailsComponent implements OnInit {
   data: {};
   site: Observable<{}>;
   id: any;
-
+  lat = 51.678418;
+  lng = 7.809007;
   constructor(private siteservice: SiteService, private router: ActivatedRoute) {
   }
   ngOnInit() {
     this.id = this.router.snapshot.params['id'];
     this.site = this.siteservice.getDetails(this.id).valueChanges();
+
   }
   resetDate() {
     this.siteservice.resetDate(this.id);

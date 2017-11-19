@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsComponent } from './pages/details/details.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -34,9 +35,14 @@ import { HomeComponent } from './pages/home/home.component';
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     BrowserAnimationsModule,
-
+    AgmCoreModule.forRoot({
+      apiKey: environment.googleMaps.apiKey,
+      libraries: ['places']
+    }),
     ReactiveFormsModule],
-
+  exports: [
+    AgmCoreModule
+  ],
   providers: [SiteService],
   bootstrap: [AppComponent]
 })
