@@ -7,14 +7,14 @@ const routes: Routes = [
   { path: '', loadChildren: './pages/landing/landing.module#LandingModule' },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    data: { value: 'home' }
   },
   {
     path: 'details/:id',
-    component: DetailsComponent
+    component: DetailsComponent, data: { value: 'details'}
   },
   { path: 'addsite', loadChildren: './pages/add-site/add-site.module#AddSiteModule' },
-
 ];
 
 @NgModule({

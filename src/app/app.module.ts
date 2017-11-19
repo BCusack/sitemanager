@@ -1,7 +1,6 @@
 import { SiteService } from './_services/site.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -19,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsComponent } from './pages/details/details.component';
 import { HomeComponent } from './pages/home/home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +34,9 @@ import { HomeComponent } from './pages/home/home.component';
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     BrowserAnimationsModule,
+
     ReactiveFormsModule],
+
   providers: [SiteService],
   bootstrap: [AppComponent]
 })
