@@ -1,54 +1,57 @@
-<div class="container">
-  <div class="card z-depth-5 content">
-    <div class="card-body">
-      <h4 class="card-title">Site Manager</h4>
-      <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-        <div class="form-group">
-          <label for="inputName" class="col-form-label">Name</label>
-          <input type="text" formControlName="name" class="form-control" id="inputName" placeholder="Name">
-        </div>
-        <div formGroupName="address">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputState" class="col-form-label">State</label>
-              <input type="text" (blur)="state($event)" formControlName="state" class="form-control" id="inputState" placeholder="State">
+<div class="container-fluid col-12">
+  <div class="row justify-content-center">
+    <div class="card z-depth-5 content">
+      <div class="card-body">
+        <h4 class="card-title">Site Manager</h4>
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+          <div class="form-group">
+            <label for="inputName" class="col-form-label">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="inputName" placeholder="Name">
+          </div>
+          <div formGroupName="address">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputState" class="col-form-label">State</label>
+                <input type="text" (blur)="state($event)" formControlName="state" class="form-control" id="inputState" placeholder="State">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputSuburb" class="col-form-label">Suburb</label>
+                <input type="text" formControlName="suburb" class="form-control" id="inputSuburb" placeholder="Suburb">
+              </div>
             </div>
-            <div class="form-group col-md-6">
-              <label for="inputSuburb" class="col-form-label">Suburb</label>
-              <input type="text" formControlName="suburb" class="form-control" id="inputSuburb" placeholder="Suburb">
+            <h1>Angular 2 + Google Maps Places Autocomplete</h1>
+            <div class="form-group">
+              <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+                #search [formControl]="searchControl">
+            </div>
+            <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom">
+              <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+            </agm-map>
+            <div class="form-group">
+              <label for="xCoordinates" class="col-form-label">X Co-ordinates</label>
+              <input type="text" formControlName="xcoordinates" class="form-control" id="xCoordinates" placeholder="X Coordinates">
+            </div>
+            <div class="form-group">
+              <label for="yCoordinates" class="col-form-label">Y Co-ordinates</label>
+              <input type="text" formControlName="ycoordinates" class="form-control" id="yCoordinates" placeholder="Y Coordinates">
             </div>
           </div>
-          <h1>Angular 2 + Google Maps Places Autocomplete</h1>
           <div class="form-group">
-            <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
-          </div>
-          <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom">
-            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-          </agm-map>
-          <div class="form-group">
-            <label for="xCoordinates" class="col-form-label">X Co-ordinates</label>
-            <input type="text" formControlName="xcoordinates" class="form-control" id="xCoordinates" placeholder="X Coordinates">
+            <label for="inputInterval" class="col-form-label">Interval</label>
+            <input type="number" formControlName="interval" class="form-control" id="inputInterval" placeholder="Set Mainenance interval">
           </div>
           <div class="form-group">
-            <label for="yCoordinates" class="col-form-label">Y Co-ordinates</label>
-            <input type="text" formControlName="ycoordinates" class="form-control" id="yCoordinates" placeholder="Y Coordinates">
+            <label for="inputNotes" class="col-form-label">Notes</label>
+            <textarea class="form-control" formControlName="note" id="inputNotes" rows="3"></textarea>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputInterval" class="col-form-label">Interval</label>
-          <input type="number" formControlName="interval" class="form-control" id="inputInterval" placeholder="Set Mainenance interval">
-        </div>
-        <div class="form-group">
-          <label for="inputNotes" class="col-form-label">Notes</label>
-          <textarea class="form-control" formControlName="note" id="inputNotes" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="inputAssign" class="col-form-label">Assigned by</label>
-          <input type="text" formControlName="member" class="form-control" id="inputAssign" placeholder="Site Assigned by">
-        </div>
-        <button type="submit" class="btn btn-primary">Add Site</button>
-      </form>
-      <div class="error display-3">{{displayError}}</div>
+          <div class="form-group">
+            <label for="inputAssign" class="col-form-label">Assigned by</label>
+            <input type="text" formControlName="member" class="form-control" id="inputAssign" placeholder="Site Assigned by">
+          </div>
+          <button type="submit" class="btn btn-primary">Add Site</button>
+        </form>
+        <div class="error display-3">{{displayError}}</div>
+      </div>
     </div>
   </div>
 </div>

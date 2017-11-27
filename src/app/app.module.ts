@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { NavComponent } from './shared/nav/nav.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsComponent } from './pages/details/details.component';
@@ -39,6 +40,8 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: environment.googleMaps.apiKey,
       libraries: ['places']
     }),
+    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
+
     ReactiveFormsModule],
   exports: [
     AgmCoreModule
