@@ -8,7 +8,7 @@ This app was upgraded from the package.json file and should compile with the new
 
 ## Firebase config
 
-Add your own redentials to you Environments file, best ref `https://medium.com/letsboot/lets-learn-how-to-install-and-setup-angularfire2-4-0-135d72bb0a41`.
+Add your own credentials to you Environments file, best ref `https://medium.com/letsboot/lets-learn-how-to-install-and-setup-angularfire2-4-0-135d72bb0a41`.
 
 ## Firebase Functions
 
