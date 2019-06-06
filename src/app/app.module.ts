@@ -40,8 +40,6 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: environment.googleMaps.apiKey,
       libraries: ['places']
     }),
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
-
     ReactiveFormsModule],
   exports: [
     AgmCoreModule
